@@ -4,12 +4,172 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Assingment-6</title>
+    <script
+      src="https://kit.fontawesome.com/878fc39c36.js"
+      crossorigin="anonymous"
+    ></script>
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css"
       rel="stylesheet"
       type="text/css"
     />
     <script src="https://cdn.tailwindcss.com"></script>
+    <style></style>
   </head>
-  <body></body>
+  <body>
+    <header class="mt-6 container mx-auto" id="header">
+      <nav>
+        <div class="navbar bg-base-100 flex justify-between">
+          <div class="navbar-start">
+            <div class="dropdown">
+              <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h8m-8 6h16"
+                  />
+                </svg>
+              </div>
+              <ul
+                tabindex="0"
+                class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <a
+                    ><div class="tooltip" data-tip="hello">
+                      <button class="btn rounded-full">
+                        <i class="fa-solid fa-house"></i>
+                      </button></div
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    ><div class="tooltip" data-tip="hello">
+                      <button class="btn rounded-full">
+                        <i class="fa-solid fa-pen"></i>
+                      </button></div
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    ><div class="tooltip" data-tip="hello">
+                      <button class="btn rounded-full">
+                        <i class="fa-solid fa-user-plus"></i>
+                      </button></div
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    ><div class="tooltip" data-tip="hello">
+                      <button class="btn rounded-full">
+                        <i class="fa-solid fa-flag"></i>
+                      </button></div
+                  ></a>
+                </li>
+              </ul>
+            </div>
+            <a class="btn btn-ghost text-md lg:text-4xl font-extrabold"
+              ><img src="images/logo.png" alt=""
+            /></a>
+          </div>
+
+          <div class="hidden lg:flex">
+            <ul class="menu menu-horizontal px-1">
+              <li>
+                <a
+                  ><div class="tooltip" data-tip="hello">
+                    <button class="btn rounded-full">
+                      <i class="fa-solid fa-house"></i>
+                    </button></div
+                ></a>
+              </li>
+              <li>
+                <a
+                  ><div class="tooltip" data-tip="hello">
+                    <button class="btn rounded-full">
+                      <i class="fa-solid fa-pen"></i>
+                    </button></div
+                ></a>
+              </li>
+              <li>
+                <a
+                  ><div class="tooltip" data-tip="hello">
+                    <button class="btn rounded-full">
+                      <i class="fa-solid fa-user-plus"></i>
+                    </button></div
+                ></a>
+              </li>
+              <li>
+                <a
+                  ><div class="tooltip" data-tip="hello">
+                    <button class="btn rounded-full">
+                      <i class="fa-solid fa-flag"></i>
+                    </button></div
+                ></a>
+              </li>
+            </ul>
+            <a class="btn bg-[#797DFC] text-white rounded-full px-10"
+              >Sign In</a
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="container mx-auto lg:my-12">
+      <!-- banner section -->
+      <section
+        class="bg-[#12132D] bg-[url(images/bgbanner.png)] bg-no-repeat bg-cover p-5 lg:px-20 lg:py-28 rounded-xl flex flex-col lg:flex-row lg:justify-around gap-10"
+      >
+        <!-- banner text  -->
+        <div class="space-y-5">
+          <h1 class="text-4xl lg:text-6xl font-extrabold text-white">
+            Welcome to the <br />
+            <span class="text-[#797DFC]">ReTro</span> Forum
+          </h1>
+          <p class="text-lg font-medium text-[#FFFFFFCC]">
+            Share your favorite opinion and win and wp <br />forum coffee mug!
+          </p>
+          <div
+            class="border rounded-full lg:w-[80%] flex py-1 px-3 justify-between bg-white"
+          >
+            <input
+              class="p-3"
+              type="text"
+              placeholder="Search here anything"
+              id=""
+            />
+            <a class="btn bg-[#797DFC] text-white rounded-full px-10">Search</a>
+          </div>
+        </div>
+        <!-- banner docs  -->
+        <div
+          class="bg-white flex justify-center py-10 lg:py-0 lg:px-14 items-center gap-14 rounded-2xl"
+        >
+          <div class="space-y-3">
+            <h1 class="text-2xl text-[#12132DCC] font-medium">
+              Registered Users
+            </h1>
+            <h1 class="text-2xl text-[#12132DCC] font-medium">Forum</h1>
+            <h1 class="text-2xl text-[#12132DCC] font-medium">Topics</h1>
+            <h1 class="text-2xl text-[#12132DCC] font-medium">Replies</h1>
+          </div>
+          <div class="space-y-3">
+            <h1 class="text-2xl text-[#12132DCC] font-medium">01</h1>
+            <h1 class="text-2xl text-[#12132DCC] font-medium">05</h1>
+            <h1 class="text-2xl text-[#12132DCC] font-medium">01</h1>
+            <h1 class="text-2xl text-[#12132DCC] font-medium">01</h1>
+          </div>
+        </div>
+      </section>
+     
+    </main>
+  </body>
 </html>
