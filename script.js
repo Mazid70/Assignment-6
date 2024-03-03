@@ -4,7 +4,6 @@ const loadData = async (id) => {
   );
   const data = await response.json();
   const allData = data.posts;
-  loadingSpinner.classList.add("hidden");
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
   allData.forEach((element) => {
@@ -18,7 +17,10 @@ const loadData = async (id) => {
       "lg:p-10",
       "bg-[#F3F3F5]"
     );
-
+    setTimeout(() => {
+      cardContainer.classList.remove("hidden");
+      loadingSpinner.classList.add("hidden");
+    }, 2000);
     let status = "";
     if (element.isActive === true) {
       status = "bg-green-500";
@@ -58,11 +60,19 @@ const loadData = async (id) => {
       />
       <div class="flex gap-10 text-[#12132D99] w-full">
         <h6>
-          <i class="fa-regular fa-message"></i> <span>${element.comment_count}</span>
+          <i class="fa-regular fa-message"></i> <span>${
+            element.comment_count
+          }</span>
         </h6>
-        <h6><i class="fa-regular fa-eye"></i><span> ${element.view_count}</span></h6>
-        <h6><i class="fa-regular fa-clock"></i><span> ${element.posted_time}</span></h6>
-        <button onclick="addTitle('${element.title}','${element.view_count}')" class="flex justify-end  items-center flex-1">
+        <h6><i class="fa-regular fa-eye"></i><span> ${
+          element.view_count
+        }</span></h6>
+        <h6><i class="fa-regular fa-clock"></i><span> ${
+          element.posted_time
+        }</span></h6>
+        <button onclick="addTitle('${element.title.split("'").join("")}','${
+      element.view_count
+    }')" class="flex justify-end  items-center flex-1">
           <i
             class="fa-solid fa-envelope bg-green-500 p-2 rounded-full text-white"
           ></i>
@@ -79,8 +89,15 @@ const addTitle = (title, watch) => {
   count++;
   document.getElementById("count").innerText = count;
   const div = document.createElement("div");
-  div.classList.add("flex", "justify-between", "bg-white", "rounded-xl", "p-9");
-  div.innerHTML = ` <p class="font-semibold text-base w-4/5">
+  div.classList.add(
+    "flex",
+    "justify-between",
+    "bg-white",
+    "rounded-xl",
+    "p-4",
+    "lg:p-9"
+  );
+  div.innerHTML = ` <p class="font-semibold text-base lg:w-4/5">
 ${title}
 </p>
 <div><i class="fa-regular fa-eye"></i><span>${watch}</span></div>`;
@@ -134,8 +151,10 @@ const loadRecentData = async () => {
 const loadingSpinner = document.getElementById("loading");
 const searchFuntion = () => {
   loadingSpinner.classList.remove("hidden");
+  document.getElementById("card-container").classList.add("hidden");
   const serachInput = document.getElementById("search-input").value;
   loadData(serachInput);
 };
+
 loadRecentData();
 loadData("Comedy");
