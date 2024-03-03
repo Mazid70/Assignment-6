@@ -13,7 +13,8 @@ const loadData = async () => {
       "border",
       "flex",
       "gap-5",
-      "p-10",
+      "p-5",
+      "lg:p-10",
       "bg-[#F3F3F5]"
     );
 
@@ -25,7 +26,7 @@ const loadData = async () => {
     }
 
     card.innerHTML = `<div>
-      <div class="relative me-4">
+      <div class="relative ">
         <img
           class="w-20 h-20 rounded-2xl"
           src="${element.image}"
@@ -84,4 +85,51 @@ ${title}
 <div><i class="fa-regular fa-eye"></i><span>${watch}</span></div>`;
   document.getElementById("title-container").appendChild(div);
 };
+const loadRecentData=async()=>{
+  const response=await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts');
+  const data=await response.json();
+  
+  
+  const latestContainer=document.getElementById('latest-container');
+  data.forEach(element=>{
+    let date='';
+    let pro='';
+    if(!element.author.posted_date ){
+      date='No publish date';
+    }
+    else{
+      date=element.author.posted_date;
+    }
+    if( !element.author.designation){
+      pro='Unknown'
+    }
+    else{
+      pro=element.author.designation;
+    }
+    const card=document.createElement('div');
+    card.classList.add("rounded-xl", "border", "space-y-3", "p-5");
+    card.innerHTML=`
+    <div><img src="${element.cover_image}" alt="" /></div>
+          <h6 class="text-[#12132D99]">
+            <i class="fa-regular fa-calendar"></i> <span> ${date}</span>
+          </h6>
+          <h1 class="font-bold text-lg">${element.title}</h1>
+          <p class="text-[#12132D99] font-normal text-base">
+          ${element.description}
+          </p>
+          <div class="flex gap-4">
+            <img
+              class="w-12 h-12 rounded-full"
+              src="${element.profile_image}"
+              alt=""
+            />
+            <div>
+              <h1 class="font-bold text-base">${element.author.name}</h1>
+              <p class="text-[#12132D99] font-normal text-sm">${pro}</p>
+            </div>
+          </div>`
+          latestContainer.appendChild(card);
+  })
+}
+loadRecentData();
 loadData();
