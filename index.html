@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Assingment-6</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
     <script
       src="https://kit.fontawesome.com/878fc39c36.js"
       crossorigin="anonymous"
@@ -14,9 +20,13 @@
       type="text/css"
     />
     <script src="https://cdn.tailwindcss.com"></script>
-    <style></style>
+    <style>
+      .mulish {
+        font-family: "Mulish", sans-serif;
+      }
+    </style>
   </head>
-  <body>
+  <body class="mulish">
     <header class="mt-6 container mx-auto" id="header">
       <nav>
         <div class="navbar bg-base-100 flex justify-between">
@@ -144,9 +154,13 @@
               class="p-3"
               type="text"
               placeholder="Search here anything"
-              id=""
+              id="search-input"
             />
-            <a class="btn bg-[#797DFC] text-white rounded-full px-10">Search</a>
+            <a
+              class="btn bg-[#797DFC] text-white rounded-full px-10"
+              onclick="searchFuntion()"
+              >Search</a
+            >
           </div>
         </div>
         <!-- banner docs  -->
@@ -178,6 +192,11 @@
             app. The <br />integrated testing features allow for a streamlined .
           </p>
         </div>
+        <!-- loading-spinner  -->
+        <div class="flex hidden justify-center mt-10" id="loading">
+          <span class="loading loading-spinner loading-lg text-error"></span>
+        </div>
+        <!-- all cards  -->
         <div class="flex flex-col lg:flex-row mt-10 gap-10 lg:gap-20">
           <div id="card-container" class="space-y-6"></div>
           <div
@@ -229,6 +248,24 @@
         ></div>
       </section>
     </main>
+    <footer
+      class="flex flex-col text-center items-center p-20 bg-[#F3F3F5] text-[#12132DB3] space-y-6"
+    >
+      <img src="images/logo.png" alt="" />
+      <p>
+        Join ReTro forum now and connect with like-minded individuals! Explore
+        ReTro <br />
+        forum and discover new ideas and perspectives!
+      </p>
+      <div class="flex gap-5 text-black text-2xl">
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-github"></i>
+      </div>
+      <div class="h-[1px] w-4/5 bg-[#12132D40]"></div>
+      <p>2017, All Rights Reserved.</p>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>

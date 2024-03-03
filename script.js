@@ -1,11 +1,12 @@
-const loadData = async () => {
+const loadData = async (id) => {
   const response = await fetch(
-    "https://openapi.programming-hero.com/api/retro-forum/posts"
+    `https://openapi.programming-hero.com/api/retro-forum/posts?category=${id}`
   );
   const data = await response.json();
   const allData = data.posts;
+  loadingSpinner.classList.add("hidden");
   const cardContainer = document.getElementById("card-container");
-
+  cardContainer.innerHTML = "";
   allData.forEach((element) => {
     const card = document.createElement("div");
     card.classList.add(
@@ -85,30 +86,29 @@ ${title}
 <div><i class="fa-regular fa-eye"></i><span>${watch}</span></div>`;
   document.getElementById("title-container").appendChild(div);
 };
-const loadRecentData=async()=>{
-  const response=await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts');
-  const data=await response.json();
-  
-  
-  const latestContainer=document.getElementById('latest-container');
-  data.forEach(element=>{
-    let date='';
-    let pro='';
-    if(!element.author.posted_date ){
-      date='No publish date';
+const loadRecentData = async () => {
+  const response = await fetch(
+    "https://openapi.programming-hero.com/api/retro-forum/latest-posts"
+  );
+  const data = await response.json();
+
+  const latestContainer = document.getElementById("latest-container");
+  data.forEach((element) => {
+    let date = "";
+    let pro = "";
+    if (!element.author.posted_date) {
+      date = "No publish date";
+    } else {
+      date = element.author.posted_date;
     }
-    else{
-      date=element.author.posted_date;
+    if (!element.author.designation) {
+      pro = "Unknown";
+    } else {
+      pro = element.author.designation;
     }
-    if( !element.author.designation){
-      pro='Unknown'
-    }
-    else{
-      pro=element.author.designation;
-    }
-    const card=document.createElement('div');
+    const card = document.createElement("div");
     card.classList.add("rounded-xl", "border", "space-y-3", "p-5");
-    card.innerHTML=`
+    card.innerHTML = `
     <div><img src="${element.cover_image}" alt="" /></div>
           <h6 class="text-[#12132D99]">
             <i class="fa-regular fa-calendar"></i> <span> ${date}</span>
@@ -127,9 +127,15 @@ const loadRecentData=async()=>{
               <h1 class="font-bold text-base">${element.author.name}</h1>
               <p class="text-[#12132D99] font-normal text-sm">${pro}</p>
             </div>
-          </div>`
-          latestContainer.appendChild(card);
-  })
-}
+          </div>`;
+    latestContainer.appendChild(card);
+  });
+};
+const loadingSpinner = document.getElementById("loading");
+const searchFuntion = () => {
+  loadingSpinner.classList.remove("hidden");
+  const serachInput = document.getElementById("search-input").value;
+  loadData(serachInput);
+};
 loadRecentData();
-loadData();
+loadData("Comedy");
