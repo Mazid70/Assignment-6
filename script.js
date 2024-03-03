@@ -17,7 +17,6 @@ const loadData = async (id) => {
       "lg:p-10",
       "bg-[#F3F3F5]",
       "hover:bg-[#797DFC1A]"
-      
     );
     setTimeout(() => {
       cardContainer.classList.remove("hidden");
@@ -43,7 +42,7 @@ const loadData = async (id) => {
       </div>
     </div>
     <div>
-      <div class="flex gap-5 lg:w-[700px]">
+      <div class="flex gap-5  lg:w-[700px]">
         <h3 class="font-medium text-sm text-[#12132DCC]">
           <span>#</span>${element.category}
         </h3>
@@ -60,7 +59,8 @@ const loadData = async (id) => {
       <hr
         class="my-5 border-dashed border-[1.5px] border-[#12132D40]"
       />
-      <div class="flex gap-10 text-[#12132D99] w-full">
+      <div class="flex gap-10 justify-between text-[#12132D99] -ml-20 lg:ml-0">
+      <div class="flex gap-10 ">
         <h6>
           <i class="fa-regular fa-message"></i> <span>${
             element.comment_count
@@ -72,9 +72,10 @@ const loadData = async (id) => {
         <h6><i class="fa-regular fa-clock"></i><span> ${
           element.posted_time
         }</span></h6>
+        </div>
         <button onclick="addTitle('${element.title.split("'").join("")}','${
       element.view_count
-    }')" class="flex justify-end  items-center flex-1">
+    }')" class="flex justify-end  items-center">
           <i
             class="fa-solid fa-envelope bg-green-500 p-2 rounded-full text-white"
           ></i>
@@ -126,7 +127,13 @@ const loadRecentData = async () => {
       pro = element.author.designation;
     }
     const card = document.createElement("div");
-    card.classList.add("rounded-xl", "border", "space-y-3", "p-5","hover:bg-[#797DFC1A]");
+    card.classList.add(
+      "rounded-xl",
+      "border",
+      "space-y-3",
+      "p-5",
+      "hover:bg-[#797DFC1A]"
+    );
     card.innerHTML = `
     <div><img class="rounded-xl" src="${element.cover_image}" alt="" /></div>
           <h6 class="text-[#12132D99]">
