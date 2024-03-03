@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Assingment-6</title>
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -54,7 +55,7 @@
               >
                 <li>
                   <a
-                    ><div class="tooltip" data-tip="hello">
+                    ><div class="tooltip" data-tip="Home">
                       <button class="btn rounded-full">
                         <i class="fa-solid fa-house"></i>
                       </button></div
@@ -62,7 +63,7 @@
                 </li>
                 <li>
                   <a
-                    ><div class="tooltip" data-tip="hello">
+                    ><div class="tooltip" data-tip="Comment">
                       <button class="btn rounded-full">
                         <i class="fa-solid fa-pen"></i>
                       </button></div
@@ -70,7 +71,7 @@
                 </li>
                 <li>
                   <a
-                    ><div class="tooltip" data-tip="hello">
+                    ><div class="tooltip" data-tip="Join">
                       <button class="btn rounded-full">
                         <i class="fa-solid fa-user-plus"></i>
                       </button></div
@@ -78,7 +79,7 @@
                 </li>
                 <li>
                   <a
-                    ><div class="tooltip" data-tip="hello">
+                    ><div class="tooltip" data-tip="Bookmark">
                       <button class="btn rounded-full">
                         <i class="fa-solid fa-flag"></i>
                       </button></div
@@ -95,7 +96,7 @@
             <ul class="menu menu-horizontal px-1">
               <li>
                 <a
-                  ><div class="tooltip" data-tip="hello">
+                  ><div class="tooltip" data-tip="Home">
                     <button class="btn rounded-full">
                       <i class="fa-solid fa-house"></i>
                     </button></div
@@ -103,7 +104,7 @@
               </li>
               <li>
                 <a
-                  ><div class="tooltip" data-tip="hello">
+                  ><div class="tooltip" data-tip="Comment">
                     <button class="btn rounded-full">
                       <i class="fa-solid fa-pen"></i>
                     </button></div
@@ -111,7 +112,7 @@
               </li>
               <li>
                 <a
-                  ><div class="tooltip" data-tip="hello">
+                  ><div class="tooltip" data-tip="Join">
                     <button class="btn rounded-full">
                       <i class="fa-solid fa-user-plus"></i>
                     </button></div
@@ -119,7 +120,7 @@
               </li>
               <li>
                 <a
-                  ><div class="tooltip" data-tip="hello">
+                  ><div class="tooltip" data-tip="Bookmark">
                     <button class="btn rounded-full">
                       <i class="fa-solid fa-flag"></i>
                     </button></div
@@ -151,13 +152,13 @@
             class="border rounded-full w-full lg:w-[80%] flex py-1 px-3 justify-between bg-white"
           >
             <input
-              class="p-3"
+              class="p-3 w-full"
               type="text"
               placeholder="Search here anything"
               id="search-input"
             />
             <a
-              class="btn bg-[#797DFC] text-white rounded-full px-10"
+              class="btn bg-[#797DFC] text-white rounded-full lg:px-10"
               onclick="searchFuntion()"
               >Search</a
             >
@@ -205,9 +206,12 @@
           >
             <div class="flex items-center justify-between">
               <h1 class="font-bold text-lg">Title</h1>
-              <p class="text-[#12132D99] text-base font-normal">
-                Mark as read (<span id="count">0</span>)
-              </p>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid text-xl text-green-400 fa-check-double"></i>
+                <p class="text-[#12132D99] text-base font-normal">
+                  Mark as read (<span id="count">0</span>)
+                </p>
+              </div>
             </div>
           </div>
         </div>
