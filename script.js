@@ -19,55 +19,69 @@ const loadData = async () => {
 
     let status = "";
     if (element.isActive === true) {
-      status = "online";
+      status = "bg-green-500";
     } else {
-      status = "offline";
+      status = "bg-red-500";
     }
 
     card.innerHTML = `<div>
-                   <div class="avatar ${status}">
-                    <div class="rounded-full w-16">
-                      <img
-                        src="${element.image}"
-                        alt=""
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <div class="flex gap-5 lg:w-[800px]">
-                    <h3 class="font-medium text-sm text-[#12132DCC]">
-                      <span>#</span>${element.category}
-                    </h3>
-                    <h3 class="font-medium text-sm text-[#12132DCC]">
-                      <span>Author:</span>  ${element.author.name}
-                    </h3>
-                  </div>
-                  <h1 class="font-bold text-xl">
-                    ${element.title}
-                  </h1>
-                  <p class="font-medium text-sm  text-[#12132D99] mt-2">
-                    ${element.description}
-                  </p>
-                  <hr
-                    class=" my-5 border-dashed border-[1.5px] border-[#12132D40]"
-                  />
-                  <div class="flex gap-10 text-[#12132D99] w-full">
-                    <h6>
-                      <i class="fa-regular fa-message"></i> <span>${element.comment_count}</span>
-                    </h6>
-                    <h6><i class="fa-regular fa-eye"></i><span> ${element.view_count}</span></h6>
-                    <h6><i class="fa-regular fa-clock"></i><span> ${element.posted_time}</span></h6>
-                    <button class="flex justify-end  items-center flex-1">
-                      <i
-                        class="fa-solid fa-envelope bg-green-500 p-2 rounded-full text-white"
-                      ></i>
-                    </button>
-                  </div>
-                </div>`;
+      <div class="relative me-4">
+        <img
+          class="w-20 h-20 rounded-2xl"
+          src="${element.image}"
+          alt="profile image"
+        />
+        <span
+          class="top-0 start-16 absolute w-3.5 h-3.5 ${status} border-2 border-white dark:border-gray-800 rounded-full"
+        ></span>
+      </div>
+    </div>
+    <div>
+      <div class="flex gap-5 lg:w-[700px]">
+        <h3 class="font-medium text-sm text-[#12132DCC]">
+          <span>#</span>${element.category}
+        </h3>
+        <h3 class="font-medium text-sm text-[#12132DCC]">
+          <span>Author:</span>  ${element.author.name}
+        </h3>
+      </div>
+      <h1 class="font-bold text-xl">
+        ${element.title}
+      </h1>
+      <p class="font-medium text-sm  text-[#12132D99] mt-2">
+        ${element.description}
+      </p>
+      <hr
+        class="my-5 border-dashed border-[1.5px] border-[#12132D40]"
+      />
+      <div class="flex gap-10 text-[#12132D99] w-full">
+        <h6>
+          <i class="fa-regular fa-message"></i> <span>${element.comment_count}</span>
+        </h6>
+        <h6><i class="fa-regular fa-eye"></i><span> ${element.view_count}</span></h6>
+        <h6><i class="fa-regular fa-clock"></i><span> ${element.posted_time}</span></h6>
+        <button onclick="addTitle('${element.title}','${element.view_count}')" class="flex justify-end  items-center flex-1">
+          <i
+            class="fa-solid fa-envelope bg-green-500 p-2 rounded-full text-white"
+          ></i>
+        </button>
+      </div>
+    </div>`;
 
     cardContainer.appendChild(card);
   });
 };
 
+let count = 0;
+const addTitle = (title, watch) => {
+  count++;
+  document.getElementById("count").innerText = count;
+  const div = document.createElement("div");
+  div.classList.add("flex", "justify-between", "bg-white", "rounded-xl", "p-9");
+  div.innerHTML = ` <p class="font-semibold text-base w-4/5">
+${title}
+</p>
+<div><i class="fa-regular fa-eye"></i><span>${watch}</span></div>`;
+  document.getElementById("title-container").appendChild(div);
+};
 loadData();
