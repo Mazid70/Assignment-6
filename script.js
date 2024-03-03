@@ -15,7 +15,9 @@ const loadData = async (id) => {
       "gap-5",
       "p-5",
       "lg:p-10",
-      "bg-[#F3F3F5]"
+      "bg-[#F3F3F5]",
+      "hover:bg-[#797DFC1A]"
+      
     );
     setTimeout(() => {
       cardContainer.classList.remove("hidden");
@@ -124,9 +126,9 @@ const loadRecentData = async () => {
       pro = element.author.designation;
     }
     const card = document.createElement("div");
-    card.classList.add("rounded-xl", "border", "space-y-3", "p-5");
+    card.classList.add("rounded-xl", "border", "space-y-3", "p-5","hover:bg-[#797DFC1A]");
     card.innerHTML = `
-    <div><img src="${element.cover_image}" alt="" /></div>
+    <div><img class="rounded-xl" src="${element.cover_image}" alt="" /></div>
           <h6 class="text-[#12132D99]">
             <i class="fa-regular fa-calendar"></i> <span> ${date}</span>
           </h6>
